@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7817368F-ED67-4E4C-BE96-142FF3878BD9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>OsuWallpaperPlayer</RootNamespace>
+    <AssemblyName>OsuWallpaperPlayer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>OsuWallpaperPlayer.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\osu-framework-master\osu.Framework\bin\Release\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="osu!BMAPI">
+      <HintPath>..\osu-BMAPI-master\obj\Release\osu!BMAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="osu.Framework">
+      <HintPath>..\osu-framework-master\osu.Framework\bin\Release\osu.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="OsuUtil">
+      <HintPath>..\OsuUtil\bin\Release\OsuUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="story-wallpaper">
+      <HintPath>..\story-wallpaper\bin\Release\story-wallpaper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomPaper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Songs\SongInfo.cs" />
+    <Compile Include="Songs\BeatmapSongPlayer.cs" />
+    <Compile Include="Songs\SongSelector.cs" />
+    <Compile Include="Taskbar\SettingMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Taskbar\SettingMenu.Designer.cs">
+      <DependentUpon>SettingMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Taskbar\TaskbarOption.cs" />
+    <Compile Include="Visualization\AudioVisualizer.cs" />
+    <Compile Include="Visualization\PlayInfoContainer.cs" />
+    <Compile Include="Visualization\DesktopWallpaper.cs" />
+    <Compile Include="Visualization\TriangleContainer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Taskbar\SettingMenu.resx">
+      <DependentUpon>SettingMenu.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Visualization\ParallaxContainer.cs">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

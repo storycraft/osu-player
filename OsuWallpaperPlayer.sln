@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsuWallpaperPlayer", "OsuWallpaperPlayer.csproj", "{7817368F-ED67-4E4C-BE96-142FF3878BD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "story-wallpaper", "..\story-wallpaper\story-wallpaper.csproj", "{00D41FF7-C372-47E7-8A25-3DEED9BC1C4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsuUtil", "..\OsuUtil\OsuUtil.csproj", "{36CE84AD-1A58-40EB-9E65-A3605D5E1C0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu!BMAPI", "..\osu-BMAPI-master\osu!BMAPI.csproj", "{7D292085-3F6F-4299-B941-4D2C185DA37E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7817368F-ED67-4E4C-BE96-142FF3878BD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7817368F-ED67-4E4C-BE96-142FF3878BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7817368F-ED67-4E4C-BE96-142FF3878BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7817368F-ED67-4E4C-BE96-142FF3878BD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00D41FF7-C372-47E7-8A25-3DEED9BC1C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00D41FF7-C372-47E7-8A25-3DEED9BC1C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00D41FF7-C372-47E7-8A25-3DEED9BC1C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00D41FF7-C372-47E7-8A25-3DEED9BC1C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36CE84AD-1A58-40EB-9E65-A3605D5E1C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36CE84AD-1A58-40EB-9E65-A3605D5E1C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36CE84AD-1A58-40EB-9E65-A3605D5E1C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36CE84AD-1A58-40EB-9E65-A3605D5E1C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D292085-3F6F-4299-B941-4D2C185DA37E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D292085-3F6F-4299-B941-4D2C185DA37E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D292085-3F6F-4299-B941-4D2C185DA37E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D292085-3F6F-4299-B941-4D2C185DA37E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1216A667-CD20-4CA2-ABF9-65F7C6E68DF4}
+	EndGlobalSection
+EndGlobal
