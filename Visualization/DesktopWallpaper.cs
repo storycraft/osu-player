@@ -111,9 +111,10 @@ namespace OsuWallpaperPlayer.Visualization
                     Background = TextureLoader.FromStream(stream);
 
                     Color4 color = Color4.White;
+                    Random rnd = new Random();
                     using (Bitmap bitmap = new Bitmap(stream))
                     {
-                        Color accentColor = bitmap.GetPixel((int)(new Random().NextDouble() * bitmap.Width), (int)(new Random().NextDouble() * bitmap.Height));
+                        Color accentColor = bitmap.GetPixel((int)(rnd.NextDouble() * bitmap.Width), (int)(rnd.NextDouble() * bitmap.Height));
                         color = new Color4(accentColor.R, accentColor.G, accentColor.B, 255).Lighten(1.33f);
                     }
 
