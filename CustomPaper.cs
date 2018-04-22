@@ -36,7 +36,7 @@ namespace OsuWallpaperPlayer
         public DirectoryInfo OsuFolder { get => new DirectoryInfo(OsuFinder.TryFindOsuLocation()); }
 
         public DirectoryInfo SongsFolder { get => new DirectoryInfo(OsuFolder.FullName + Path.DirectorySeparatorChar + "Songs"); }
-
+        
         public CustomPaper()
         {
             Name = "CustomPaper";
@@ -62,6 +62,8 @@ namespace OsuWallpaperPlayer
             SongSelector = new SongSelector(OsuDb, SongsFolder);
             SongPlayer = new BeatmapSongPlayer(this);
 
+            Host.Exited += OnExited;
+
             DesktopWallpaper = new DesktopWallpaper(this);
 
             Add(DesktopWallpaper.PlayerDrawable);
@@ -81,7 +83,7 @@ namespace OsuWallpaperPlayer
 
             Window.Location = new Point(-virtualRect.Location.X, -virtualRect.Location.Y);
             Window.Size = Screen.PrimaryScreen.Bounds.Size;
-
+            
             DesktopTool.AppendToWallpaperArea(Window.WindowInfo.Handle);
         }
 
@@ -98,6 +100,7 @@ namespace OsuWallpaperPlayer
                 currentSong = value;
                 DesktopWallpaper.CurrentSongInfo = value;
                 SongPlayer.CurrentSong = value;
+                TaskbarOption.InfoMessage = "Now Playing: " + value.ArtistName + " - " + value.Title;
 
                 SongPlayer.Play();
             }
@@ -131,11 +134,10 @@ namespace OsuWallpaperPlayer
                 PlayRandomSong();
         }
 
-        protected override bool OnExiting()
+        protected void OnExited()
         {
             TaskbarOption.Visible = false;
-            
-            return base.OnExiting();
+            DesktopTool.UpdateWallpaperArea();
         }
     }
 }

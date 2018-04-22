@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OsuWallpaperPlayer.Taskbar
@@ -21,8 +17,10 @@ namespace OsuWallpaperPlayer.Taskbar
 
             TaskbarIcon = new NotifyIcon();
 
+            TaskbarIcon.ContextMenu = new TaskbarMenu(this);
+
             TaskbarIcon.Icon = SystemIcons.Application;
-            TaskbarIcon.Click += OnTaskbarIconClick;
+            TaskbarIcon.MouseClick += OnTaskbarIconClick;
         }
 
         public bool Visible
@@ -51,8 +49,24 @@ namespace OsuWallpaperPlayer.Taskbar
             }
         }
 
-        private void OnTaskbarIconClick(object sender, EventArgs e)
+        public String InfoMessage
         {
+            get
+            {
+                return TaskbarIcon.Text;
+            }
+
+            set
+            {
+                TaskbarIcon.Text = value;
+            }
+        }
+
+        private void OnTaskbarIconClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+                return;
+
             if (CurrentSettingMenu == null || CurrentSettingMenu.IsDisposed)
                 CurrentSettingMenu = CreateSettingMenu();
 
