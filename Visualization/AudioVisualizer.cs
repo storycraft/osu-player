@@ -11,7 +11,7 @@ using osu.Framework.Graphics.OpenGL.Vertices;
 using osu.Framework.Graphics.Primitives;
 using osu.Framework.Graphics.Shaders;
 using osu.Framework.Graphics.Textures;
-using OsuWallpaperPlayer.Songs;
+using osu_player.Songs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

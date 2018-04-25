@@ -1,4 +1,4 @@
-﻿using OsuWallpaperPlayer.Songs;
+﻿using osu_player.Songs;
 using osu.Framework.Graphics.Textures;
 using System;
 using System.Collections.Generic;

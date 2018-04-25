@@ -5,11 +5,11 @@ using StoryWallpaper;
 using System.Drawing;
 using System.Windows.Forms;
 using System;
-using OsuWallpaperPlayer.Taskbar;
-using OsuWallpaperPlayer.Visualization;
+using osu_player.Taskbar;
+using osu_player.Visualization;
 using System.IO;
 using OsuUtil;
-using OsuWallpaperPlayer.Songs;
+using osu_player.Songs;
 using OsuUtil.DataBase;
 
 namespace osu_player

@@ -1,4 +1,4 @@
-﻿namespace OsuWallpaperPlayer.Taskbar
+﻿namespace osu_player.Taskbar
 {
     partial class SettingMenu
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OsuWallpaperPlayer.Taskbar
+namespace osu_player.Taskbar
 {
     class TaskbarMenu : ContextMenu
     {
