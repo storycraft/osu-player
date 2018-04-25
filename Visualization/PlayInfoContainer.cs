@@ -88,8 +88,8 @@ namespace osu_player.Visualization
                             EdgeEffect = new EdgeEffectParameters
                             {
                                 Type = EdgeEffectType.Shadow,
-                                Colour = Color4.Black.Opacity(80),
-                                Radius = 5f
+                                Colour = Color4.Black.Lighten(1.15f).Opacity(75),
+                                Radius = 3f
                             },
 
                             Depth = -4,
@@ -141,6 +141,12 @@ namespace osu_player.Visualization
                     },
                 }
             };
+
+            EdgeEffect = new EdgeEffectParameters
+            {
+                Colour = Color4.Black.Lighten(1.25f).Opacity(0.6f),
+                Radius = 5f
+            };
         }
 
         private SongInfo songInfo;
@@ -169,7 +175,7 @@ namespace osu_player.Visualization
 
         protected override void Update()
         {
-            ProgressBar.Current.Value = (float)(Player.CurrentTime / Player.PlayTime);
+            ProgressBar.Current.Value = (float) Player.CurrentTime / Math.Max(Player.PlayTime, 1);
 
             string progressText = "";
 

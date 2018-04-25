@@ -44,6 +44,8 @@ namespace osu_player.Songs
                     }
                 }
 
+                CurrentTrack?.Stop();
+
                 CurrentTrack = new TrackBass(Stream);
 
                 Audio.Track.AddItem(CurrentTrack);

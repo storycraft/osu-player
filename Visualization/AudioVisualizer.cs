@@ -32,12 +32,12 @@ namespace osu_player.Visualization
         /// <summary>
         /// The maximum length of each bar in the visualiser. Will be reduced when kiai is not activated.
         /// </summary>
-        private const float bar_length = 1250;
+        private const float bar_length = 1200;
 
         /// <summary>
         /// The number of bars in one rotation of the visualiser.
         /// </summary>
-        private const int bars_per_visualiser = 195;
+        private const int bars_per_visualiser = 180;
 
         /// <summary>
         /// How many times we should stretch around the circumference (overlapping overselves).

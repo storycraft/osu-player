@@ -9,7 +9,7 @@ namespace osu_player.Taskbar
         public CustomPaper Application { get; }
 
         public NotifyIcon TaskbarIcon { get; }
-        public SettingMenu CurrentSettingMenu { get; private set; }
+        public TaskbarMenu TaskbarMenu { get; }
 
         public TaskbarOption(CustomPaper application)
         {
@@ -17,10 +17,9 @@ namespace osu_player.Taskbar
 
             TaskbarIcon = new NotifyIcon();
 
-            TaskbarIcon.ContextMenu = new TaskbarMenu(this);
+            TaskbarIcon.ContextMenu = TaskbarMenu = new TaskbarMenu(this);
 
             TaskbarIcon.Icon = SystemIcons.Application;
-            TaskbarIcon.MouseClick += OnTaskbarIconClick;
         }
 
         public bool Visible
@@ -59,30 +58,8 @@ namespace osu_player.Taskbar
             set
             {
                 TaskbarIcon.Text = value;
+                TaskbarMenu.songInfoItem.Text = value;
             }
-        }
-
-        private void OnTaskbarIconClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.Left)
-                return;
-
-            if (CurrentSettingMenu == null || CurrentSettingMenu.IsDisposed)
-                CurrentSettingMenu = CreateSettingMenu();
-
-            if (CurrentSettingMenu.Visible)
-            {
-                CurrentSettingMenu.Focus();
-            }
-            else
-            {
-                CurrentSettingMenu.Show();
-            }
-        }
-
-        private SettingMenu CreateSettingMenu()
-        {
-            return new SettingMenu();
         }
     }
 }

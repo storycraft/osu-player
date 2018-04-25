@@ -69,12 +69,6 @@
     <Compile Include="Songs\SongInfo.cs" />
     <Compile Include="Songs\BeatmapSongPlayer.cs" />
     <Compile Include="Songs\SongSelector.cs" />
-    <Compile Include="Taskbar\SettingMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Taskbar\SettingMenu.Designer.cs">
-      <DependentUpon>SettingMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Taskbar\TaskbarMenu.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -86,11 +80,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Taskbar\SettingMenu.resx">
-      <DependentUpon>SettingMenu.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Visualization\ParallaxContainer.cs">

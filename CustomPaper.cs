@@ -19,16 +19,15 @@ namespace osu_player
         public TaskbarOption TaskbarOption { get; }
 
         public BeatmapSongPlayer SongPlayer { get; private set; }
-
         public SongSelector SongSelector { get; private set; }
 
         public DesktopWallpaper DesktopWallpaper { get; private set; }
 
         public BeatmapDb OsuDb { get; private set; }
-
         public DirectoryInfo OsuFolder { get => new DirectoryInfo(OsuFinder.TryFindOsuLocation()); }
-
         public DirectoryInfo SongsFolder { get => new DirectoryInfo(OsuFolder.FullName + Path.DirectorySeparatorChar + "Songs"); }
+
+        public event EventHandler OnSongChange;
         
         public CustomPaper()
         {
@@ -55,6 +54,8 @@ namespace osu_player
             SongSelector = new SongSelector(OsuDb, SongsFolder);
             SongPlayer = new BeatmapSongPlayer(this);
 
+            WallpaperMode = true;
+
             Host.Exited += OnExited;
 
             DesktopWallpaper = new DesktopWallpaper(this);
@@ -71,8 +72,6 @@ namespace osu_player
             Rectangle virtualRect = SystemInformation.VirtualScreen;
 
             Window.WindowBorder = WindowBorder.Hidden;
-
-            Window.Visible = true;
 
             Window.Location = new Point(-virtualRect.Location.X, -virtualRect.Location.Y);
             Window.Size = Screen.PrimaryScreen.Bounds.Size;
@@ -91,15 +90,18 @@ namespace osu_player
             set
             {
                 currentSong = value;
+
+                OnSongChange?.Invoke(this, EventArgs.Empty);
+
                 DesktopWallpaper.CurrentSongInfo = value;
                 SongPlayer.CurrentSong = value;
-                TaskbarOption.InfoMessage = "Now Playing: " + value.ArtistName + " - " + value.Title;
+                TaskbarOption.InfoMessage = "Now Playing: " + value.ArtistNameUnicode + " - " + value.TitleUnicode;
 
                 SongPlayer.Play();
             }
         }
 
-        private void PlayRandomSong()
+        public void PlayRandomSong()
         {
             try
             {
@@ -111,6 +113,35 @@ namespace osu_player
             {
                 Console.WriteLine("Error " + e.StackTrace);
                 PlayRandomSong();
+            }
+        }
+
+        private bool wallpaperMode;
+
+        public bool WallpaperMode
+        {
+            get => wallpaperMode;
+
+            set
+            {
+                if (wallpaperMode == value) return;
+
+                wallpaperMode = value;
+
+                if (wallpaperMode)
+                {
+                    Window.Visible = true;
+
+                    Host.DrawThread.InactiveHz = 0;
+                }
+                else
+                {
+                    Window.Visible = false;
+
+                    Host.DrawThread.InactiveHz = 1;
+
+                    DesktopTool.UpdateWallpaper();
+                }
             }
         }
 

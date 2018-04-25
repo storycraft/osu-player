@@ -118,7 +118,7 @@ namespace osu_player.Visualization
                         color = new Color4(accentColor.R, accentColor.G, accentColor.B, 255).Lighten(1.33f);
                     }
 
-                    PlayInfoContainer.Visualizer.AccentColour = color.Opacity(0.5f);
+                    PlayInfoContainer.Visualizer.AccentColour = color.Lighten(1.05f).Opacity(0.5f);
                     PlayInfoContainer.CircularBox.Colour = color.Lighten(1.25f).Opacity(0.75f);
                     PlayInfoContainer.TriangleContainer.TriangleColour= PlayInfoContainer.ProgressBar.Colour = color.Darken(1.25f).Opacity(0.75f);
                 }
