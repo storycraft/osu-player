@@ -1,23 +1,16 @@
 ﻿using osu.Framework;
-using osu.Framework.Graphics;
 using osu.Framework.Allocation;
-using osu.Framework.Graphics.Shapes;
-using osu.Framework.Graphics.Colour;
-using OpenTK.Graphics;
 using OpenTK;
 using StoryWallpaper;
 using System.Drawing;
 using System.Windows.Forms;
 using System;
-using System.Threading.Tasks;
 using OsuWallpaperPlayer.Taskbar;
 using OsuWallpaperPlayer.Visualization;
 using System.IO;
 using OsuUtil;
 using OsuWallpaperPlayer.Songs;
 using OsuUtil.DataBase;
-using osu.Framework.Graphics.Containers;
-using osu.Framework.Input;
 
 namespace OsuWallpaperPlayer
 {
@@ -137,7 +130,7 @@ namespace OsuWallpaperPlayer
         protected void OnExited()
         {
             TaskbarOption.Visible = false;
-            DesktopTool.UpdateWallpaperArea();
+            DesktopTool.UpdateWallpaper();
         }
     }
 }
