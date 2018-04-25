@@ -1,1 +1,1 @@
-# osu-wallpaper-player
+# osu-player

@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OsuWallpaperPlayer.Visualization
+namespace osu_player.Visualization
 {
     public class PlayInfoContainer : ParallaxContainer
     {

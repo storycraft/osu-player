@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OsuWallpaperPlayer.Songs
+namespace osu_player.Songs
 {
     public class BeatmapSongPlayer
     {

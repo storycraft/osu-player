@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // SettingMenu
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "SettingMenu";
+            this.ClientSize = new System.Drawing.Size(464, 561);
+            this.Name = "SettingMenu";
+            this.Text = "osu!player";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

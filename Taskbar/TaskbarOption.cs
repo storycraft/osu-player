@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace OsuWallpaperPlayer.Taskbar
+namespace osu_player.Taskbar
 {
     public class TaskbarOption
     {

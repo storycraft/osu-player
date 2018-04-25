@@ -18,7 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OsuWallpaperPlayer.Visualization
+namespace osu_player.Visualization
 {
     public class AudioVisualizer : Drawable
     {//https://github.com/ppy/osu/blob/master/osu.Game/Screens/Menu/LogoVisualisation.cs

@@ -7,7 +7,7 @@ using osu.Framework.Input;
 using OpenTK;
 using osu.Framework.MathUtils;
 
-namespace OsuWallpaperPlayer.Visualization
+namespace osu_player.Visualization
 {
     public class ParallaxContainer : Container, IRequireHighFrequencyMousePosition
     {

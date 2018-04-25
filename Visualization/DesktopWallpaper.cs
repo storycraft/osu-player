@@ -17,7 +17,7 @@ using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Graphics.OpenGL.Textures;
 using System.Drawing;
 
-namespace OsuWallpaperPlayer.Visualization
+namespace osu_player.Visualization
 {
     public class DesktopWallpaper
     {

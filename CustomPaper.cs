@@ -12,7 +12,7 @@ using OsuUtil;
 using OsuWallpaperPlayer.Songs;
 using OsuUtil.DataBase;
 
-namespace OsuWallpaperPlayer
+namespace osu_player
 {
     public class CustomPaper : Game
     {
