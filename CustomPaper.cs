@@ -133,12 +133,14 @@ namespace osu_player
                     Window.Visible = true;
 
                     Host.DrawThread.InactiveHz = 0;
+                    Host.UpdateThread.InactiveHz = 0;
                 }
                 else
                 {
                     Window.Visible = false;
 
                     Host.DrawThread.InactiveHz = 1;
+                    Host.UpdateThread.InactiveHz = 10;
 
                     DesktopTool.UpdateWallpaper();
                 }
