@@ -11,6 +11,7 @@ using System.IO;
 using OsuUtil;
 using osu_player.Songs;
 using OsuUtil.DataBase;
+using osu.Framework.Graphics;
 
 namespace osu_player
 {
@@ -33,6 +34,7 @@ namespace osu_player
         {
             Name = "CustomPaper";
 
+            wallpaperMode = true;
             TaskbarOption = new TaskbarOption(this);
         }
 
@@ -54,11 +56,11 @@ namespace osu_player
             SongSelector = new SongSelector(OsuDb, SongsFolder);
             SongPlayer = new BeatmapSongPlayer(this);
 
-            WallpaperMode = true;
-
             Host.Exited += OnExited;
 
             DesktopWallpaper = new DesktopWallpaper(this);
+
+            Window.Visible = false;
 
             Add(DesktopWallpaper.PlayerDrawable);
 
@@ -71,12 +73,18 @@ namespace osu_player
         {
             Rectangle virtualRect = SystemInformation.VirtualScreen;
 
+            Window.WindowState = WindowState.Minimized;
+
+            DesktopTool.AppendToWallpaperArea(Window.WindowInfo.Handle);
+
             Window.WindowBorder = WindowBorder.Hidden;
 
-            Window.Location = new Point(-virtualRect.Location.X, -virtualRect.Location.Y);
+            Window.Location = new Point(-virtualRect.Left, -virtualRect.Top);
             Window.Size = Screen.PrimaryScreen.Bounds.Size;
-            
-            DesktopTool.AppendToWallpaperArea(Window.WindowInfo.Handle);
+
+            DesktopTool.UpdateWallpaper();
+
+            Window.Visible = true;
         }
 
         private SongInfo currentSong;

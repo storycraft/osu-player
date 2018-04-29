@@ -44,7 +44,7 @@ namespace osu_player.Visualization
                 {
                     Origin = Anchor.Centre,
                     Anchor = Anchor.Centre,
-                    Size = new OpenTK.Vector2(350f, 350f),
+                    Size = new OpenTK.Vector2(450f, 450f),
                     Depth = -3
                 },
                 Circular = new CircularContainer()
@@ -52,7 +52,7 @@ namespace osu_player.Visualization
                     Origin = Anchor.Centre,
                     Anchor = Anchor.Centre,
 
-                    Size = new OpenTK.Vector2(350f, 350f),
+                    Size = new OpenTK.Vector2(450f, 450f),
 
                     Masking = true,
 
@@ -70,17 +70,16 @@ namespace osu_player.Visualization
 
                             RelativeSizeAxes = Axes.Both,
 
-                            InnerRadius = 0.1f,
                             Colour = Color4.White,
                             Depth = -4
                         },
                         InfoContainer = new CircularContainer()
                         {
-                            Size = new OpenTK.Vector2(315f, 315f),
-                            Margin = new MarginPadding(35f),
+                            Size = new OpenTK.Vector2(400f, 400f),
+                            Margin = new MarginPadding(50f),
 
                             Masking = true,
-                            CornerRadius = 315f / 2f,
+                            CornerRadius = 400f / 2f,
 
                             Origin = Anchor.Centre,
                             Anchor = Anchor.Centre,
@@ -175,11 +174,11 @@ namespace osu_player.Visualization
 
         protected override void Update()
         {
-            ProgressBar.Current.Value = (float) Player.CurrentTime / Math.Max(Player.PlayTime, 1);
+            ProgressBar.Current.Value = (float)Player.CurrentTime / Math.Max(Player.PlayTime, 1);
 
             string progressText = "";
 
-            int seconds = (int) (Player.CurrentTime / 1000);
+            int seconds = (int)(Player.CurrentTime / 1000);
             int minutes = seconds / 60;
             int hours = minutes / 60;
 
@@ -191,7 +190,7 @@ namespace osu_player.Visualization
 
             progressText += " / ";
 
-            seconds = (int) (Player.PlayTime / 1000);
+            seconds = (int)(Player.PlayTime / 1000);
             minutes = seconds / 60;
             hours = minutes / 60;
 
@@ -215,7 +214,7 @@ namespace osu_player.Visualization
 
                 Font = "OpenSans",
                 Colour = Color4.Black,
-                TextSize = 40f,
+                TextSize = 45f,
                 Text = title,
                 Depth = -6
             };
@@ -228,10 +227,10 @@ namespace osu_player.Visualization
                 Origin = Anchor.Centre,
                 Anchor = Anchor.Centre,
                 Y = 40,
-                
+
                 Font = "OpenSans",
                 Colour = Color4.Black,
-                TextSize = 20f,
+                TextSize = 25f,
                 Text = artist,
                 Depth = -6
             };

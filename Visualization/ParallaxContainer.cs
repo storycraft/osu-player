@@ -28,7 +28,6 @@ namespace osu_player.Visualization
 
                 if (IsLoaded)
                 {
-                    content.MoveTo(Vector2.Zero, firstUpdate ? 0 : 1000, Easing.OutQuint);
                     content.Scale = new Vector2(1 + ParallaxAmount);
                 }
             }
@@ -57,8 +56,6 @@ namespace osu_player.Visualization
             input = GetContainingInputManager();
         }
 
-        private bool firstUpdate = true;
-
         protected override void Update()
         {
             base.Update();
@@ -72,8 +69,6 @@ namespace osu_player.Visualization
                 content.Position = Interpolation.ValueAt(elapsed, content.Position, offset, 0, 1000, Easing.OutQuint);
                 content.Scale = Interpolation.ValueAt(elapsed, content.Scale, new Vector2(1 + ParallaxAmount), 0, 1000, Easing.OutQuint);
             }
-
-            firstUpdate = false;
         }
     }
 }

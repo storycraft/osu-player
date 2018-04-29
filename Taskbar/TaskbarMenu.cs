@@ -20,16 +20,18 @@ namespace osu_player.Taskbar
         public TaskbarMenu(TaskbarOption taskbarOption)
         {
             TaskbarOption = taskbarOption;
-
-            (infoItem = new MenuItem
+            
+            infoItem = new MenuItem
             {
                 Text = "osu!player by storycraft",
-            }).Enabled = false;
+                Enabled = false
+            };
 
-            (songInfoItem = new MenuItem
+            songInfoItem = new MenuItem
             {
                 Text = "",
-            }).Enabled = false;
+                Enabled = false
+            };
 
             (nextSongItem = new MenuItem
             {
@@ -40,7 +42,7 @@ namespace osu_player.Taskbar
             {
                 Text = "월페이퍼 렌더링 토글",
             }).Click += OnToggleWallpaper;
-            toggleWallpaper.Checked = true;
+            toggleWallpaper.Checked = taskbarOption.Application.WallpaperMode;
 
             (closeItem = new MenuItem
             {
@@ -48,6 +50,11 @@ namespace osu_player.Taskbar
             }).Click += OnCloseItemClick;
 
             MenuItems.Add(infoItem);
+            MenuItems.Add(new MenuItem
+            {
+                Text = "-",
+                Enabled = false
+            });
             MenuItems.Add(songInfoItem);
             MenuItems.Add(nextSongItem);
             MenuItems.Add(toggleWallpaper);

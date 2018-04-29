@@ -83,10 +83,10 @@ C:\Users\user\Desktop\Story Workspace\OsuWallpaperPlayer\bin\Release\ManagedBass
 C:\Users\user\Desktop\Story Workspace\OsuWallpaperPlayer\bin\Release\System.Reflection.Metadata.xml
 C:\Users\user\Desktop\Story Workspace\OsuWallpaperPlayer\obj\Release\OsuWallpaperPlayer.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\Story Workspace\OsuWallpaperPlayer\obj\Release\OsuWallpaperPlayer.csproj.CopyComplete
-C:\Users\user\Desktop\Story Workspace\OsuWallpaperPlayer\obj\Release\OsuWallpaperPlayer.csprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\Story Workspace\OsuWallpaperPlayer\obj\Release\OsuPlayer.exe.config
 C:\Users\user\Desktop\Story Workspace\OsuWallpaperPlayer\bin\Release\OsuPlayer.exe.config
 C:\Users\user\Desktop\Story Workspace\OsuWallpaperPlayer\bin\Release\OsuPlayer.exe
 C:\Users\user\Desktop\Story Workspace\OsuWallpaperPlayer\bin\Release\OsuPlayer.pdb
 C:\Users\user\Desktop\Story Workspace\OsuWallpaperPlayer\obj\Release\OsuPlayer.exe
 C:\Users\user\Desktop\Story Workspace\OsuWallpaperPlayer\obj\Release\OsuPlayer.pdb
+C:\Users\user\Desktop\Story Workspace\OsuWallpaperPlayer\obj\Release\OsuWallpaperPlayer.csprojResolveAssemblyReference.cache

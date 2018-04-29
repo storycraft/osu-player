@@ -16,8 +16,8 @@ namespace osu_player.Visualization
     {
         private const float create_chance = 0.1f;
 
-        private const float triangle_min_size = 35f;
-        private const float triangle_max_size = 75f;
+        private const float triangle_min_size = 55f;
+        private const float triangle_max_size = 95f;
 
         private const float triangle_min_speed = 2250f;
         private const float triangle_max_speed = 4500f;

@@ -23,7 +23,7 @@ namespace osu_player.Visualization
     {
         public CustomPaper Application { get; }
 
-        public DrawSizePreservingFillContainer PlayerDrawable { get; }
+        public Container PlayerDrawable { get; }
 
         public PlayInfoContainer PlayInfoContainer { get; }
         public ParallaxContainer BackgroundContainer { get; }
@@ -55,11 +55,10 @@ namespace osu_player.Visualization
             {
                 ParallaxAmount = 0.02f,
                 Depth = -3,
-
-                Scale = new Vector2(0.8f, 0.8f)
+                Scale = new Vector2(1.0f)
             };
 
-            PlayInfoContainer.ScaleTo(1, 1000f, Easing.OutQuart);
+            PlayInfoContainer.ScaleTo(1f, 1000f, Easing.OutQuart);
 
             BackgroundContainer = new ParallaxContainer()
             {
@@ -79,7 +78,7 @@ namespace osu_player.Visualization
                 }
             };
 
-            PlayerDrawable = new DrawSizePreservingFillContainer()
+            PlayerDrawable = new Container()
             {
                 RelativeSizeAxes = Axes.Both,
                 Children = new Drawable[]
