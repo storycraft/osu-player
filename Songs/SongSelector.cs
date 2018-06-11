@@ -14,21 +14,40 @@ namespace osu_player.Songs
     public class SongSelector
     {
         public BeatmapDb BeatmapDb { get; }
+        public CollectionDb CollectionDb { get; }
+
         public DirectoryInfo SongsFolder { get; }
 
-        public SongSelector(BeatmapDb beatmapDb, DirectoryInfo songsFolder)
+        public bool CollectionMode { get; set; }
+        public List<IBeatmap> PlayCollection { get; set; }
+
+        public SongSelector(BeatmapDb beatmapDb, CollectionDb collectionDb, DirectoryInfo songsFolder)
         {
             BeatmapDb = beatmapDb;
+            CollectionDb = collectionDb;
             SongsFolder = songsFolder;
+
+            CollectionMode = false;
         }
 
         public SongInfo GetRandom()
         {
             List<IBeatmapSet> beatmapSetList = BeatmapDb.BeatmapSets.Values.ToList();
-            IBeatmapSet mapSet = beatmapSetList[(int) (new Random().NextDouble() * (beatmapSetList.Count - 1))];
+            List<IBeatmap> beatmapList;
 
-            List<IBeatmap> beatmapList = mapSet.Beatmaps.Values.ToList();
-            IBeatmap map = beatmapList[(int) (new Random().NextDouble() * (mapSet.Beatmaps.Count - 1))];
+            if (CollectionMode)
+            {
+                beatmapList = PlayCollection;
+            }
+            else
+            {
+                IBeatmapSet mapSet = beatmapSetList[(int)(new Random().NextDouble() * (beatmapSetList.Count - 1))];
+
+                beatmapList = mapSet.Beatmaps.Values.ToList();
+            }
+
+            
+            IBeatmap map = beatmapList[(int) (new Random().NextDouble() * (beatmapList.Count - 1))];
 
             DirectoryInfo beatmapFolder = new DirectoryInfo(SongsFolder.FullName + Path.DirectorySeparatorChar + map.SongFolderName);
 

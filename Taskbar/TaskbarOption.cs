@@ -61,5 +61,10 @@ namespace osu_player.Taskbar
                 TaskbarMenu.songInfoItem.Text = value;
             }
         }
+
+        internal void OnLoad()
+        {
+            TaskbarMenu.OnLoad();
+        }
     }
 }

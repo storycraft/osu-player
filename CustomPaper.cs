@@ -12,6 +12,8 @@ using OsuUtil;
 using osu_player.Songs;
 using OsuUtil.DataBase;
 using osu.Framework.Graphics;
+using System.Collections.Generic;
+using OsuUtil.Beatmap;
 
 namespace osu_player
 {
@@ -25,6 +27,8 @@ namespace osu_player
         public DesktopWallpaper DesktopWallpaper { get; private set; }
 
         public BeatmapDb OsuDb { get; private set; }
+        public CollectionDb CollectionDb { get; private set; }
+
         public DirectoryInfo OsuFolder { get => new DirectoryInfo(OsuFinder.TryFindOsuLocation()); }
         public DirectoryInfo SongsFolder { get => new DirectoryInfo(OsuFolder.FullName + Path.DirectorySeparatorChar + "Songs"); }
 
@@ -51,9 +55,25 @@ namespace osu_player
                 Exit();
             }
 
-            OsuDb = OsuDbReader.ParseFromStream(new FileStream(OsuFolder.FullName + Path.DirectorySeparatorChar + "osu!.db", FileMode.Open));
+            try
+            {
+                OsuDb = OsuDbReader.ParseFromStream(new FileStream(OsuFolder.FullName + Path.DirectorySeparatorChar + "osu!.db", FileMode.Open));
+            } catch (Exception e)
+            {
+                MessageBox.Show("osu! 비트맵 리스트를 파싱할 수 없습니다. 프로그램이 종료됩니다.\n" + e.StackTrace, "CustomPaper", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Exit();
+            }
 
-            SongSelector = new SongSelector(OsuDb, SongsFolder);
+            try
+            {
+                CollectionDb = OsuCollectionReader.ParseFromStream(new FileStream(OsuFolder.FullName + Path.DirectorySeparatorChar + "collection.db", FileMode.Open));
+            } catch (Exception e)
+            {
+                CollectionDb = new OsuCollectionDb(new Dictionary<string, List<string>>());
+                MessageBox.Show("osu! 컬렉션 리스트를 파싱할 수 없습니다. 컬렉션 모드가 비 활성화 됩니다.\n" + e.StackTrace, "CustomPaper", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            SongSelector = new SongSelector(OsuDb, CollectionDb, SongsFolder);
             SongPlayer = new BeatmapSongPlayer(this);
 
             Host.Exited += OnExited;
@@ -65,6 +85,8 @@ namespace osu_player
             Add(DesktopWallpaper.PlayerDrawable);
 
             AppendToDesktop();
+
+            TaskbarOption.OnLoad();
 
             PlayRandomSong();
         }
